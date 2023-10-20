@@ -1,0 +1,57 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.TugasPertemuan8" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+    <style name="Base.Theme.TugasPertemuan8.WithActionBar" parent="Theme.Material3.DayNight">
+        <item name="android:statusBarColor">#464ede</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.TugasPertemuan8" parent="Base.Theme.TugasPertemuan8" />
+    <style name="Theme.TugasPertemuan8.WithActionBar" parent="Base.Theme.TugasPertemuan8.WithActionBar" />
+
+    <!-- Font-->
+    <style name="ActionBarFont">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="ActivityTitleFont">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="Font13">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="Font14">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <!-- Edit Text-->
+    <style name="EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/edit_text_background</item>
+    </style>
+
+    <!-- Button-->
+    <style name="Button">
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+</resources>
