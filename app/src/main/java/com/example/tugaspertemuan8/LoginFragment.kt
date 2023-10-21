@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.tugaspertemuan8.databinding.FragmentLoginBinding
-import com.example.tugaspertemuan8.databinding.FragmentRegisterBinding
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -19,30 +18,37 @@ class LoginFragment : Fragment() {
     ): View? {
         binding = FragmentLoginBinding.inflate(layoutInflater)
         val view = binding.root
+        val authenticationActivity = requireActivity() as AuthenticationActivity
+
+        // mengambil data
+        val args = this.arguments
+        val usernameRegister = args?.get("username").toString()
+        val passwordRegister = args?.get("password").toString()
 
         with(binding){
-            val activity = requireActivity() as AuthenticationActivity
-            val (username, password) = activity.getUserData()
+            editTextUsername.setSingleLine(true)
 
             btnLogin.setOnClickListener{
                 val usernameLogin = editTextUsername.text.toString()
                 val passwordLogin = editTextPassword.text.toString()
 
                 if (usernameLogin != "" && passwordLogin != "") {
-                    if (usernameLogin == username && passwordLogin == password) {
+                    if (usernameLogin == usernameRegister && passwordLogin == passwordRegister) {
+                        // pindah ke HomeActivity
                         val intentToHomeActivity = Intent(requireContext(), HomeActivity::class.java)
                         startActivity(intentToHomeActivity)
                     } else {
+                        // username dan password salah
                         Toast.makeText(requireContext(), "Incorrect password and username.", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-//                    Toast.makeText(requireContext(), "$usernameLogin, $username, $passwordLogin, $password", Toast.LENGTH_LONG).show()
+                    // edit text masih ada yang kosong atau kosong semua
                     Toast.makeText(requireContext(), "Please make sure that all forms are filled in!", Toast.LENGTH_SHORT).show()
                 }
             }
 
             txtToRegister.setOnClickListener {
-                activity.navigateToRegisterPage()
+                authenticationActivity.navigateToRegisterPage()
             }
         }
 

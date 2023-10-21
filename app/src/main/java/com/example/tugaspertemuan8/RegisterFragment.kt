@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.tugaspertemuan8.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
@@ -19,7 +20,8 @@ class RegisterFragment : Fragment() {
         val view = binding.root
 
         with(binding){
-            val activity = requireActivity() as AuthenticationActivity
+            val authenticationActivity = requireActivity() as AuthenticationActivity
+            editTextUsername.setSingleLine(true)
 
             btnRegister.setOnClickListener{
                 val username = editTextUsername.text.toString()
@@ -29,18 +31,30 @@ class RegisterFragment : Fragment() {
 
                 if (username != "" && email != "" && phone != "" && password != "") {
                     if (checkboxTc.isChecked) {
-                        activity.setUserData(username, password)
-                        activity.navigateToLoginPage()
+                        // memasukkan data ke bundle
+                        val bundle = Bundle()
+                        bundle.putString("username", username)
+                        bundle.putString("password", password)
+
+                        // mengirim data ke LoginFragment
+                        val adapter = authenticationActivity.viewPager2.adapter as FragmentStateAdapter
+                        val loginFragment = adapter.createFragment(1) as LoginFragment
+                        loginFragment.arguments = bundle
+
+                        // pindah ke LoginFragment
+                        authenticationActivity.navigateToLoginPage()
                     } else {
+                        // belum check checkbox
                         Toast.makeText(requireContext(), "Please agree to our terms and conditions!", Toast.LENGTH_SHORT).show()
                     }
                 } else {
+                    // edit text masih ada yang kosong atau kosong semua
                     Toast.makeText(requireContext(), "Please make sure that all forms are filled in!", Toast.LENGTH_SHORT).show()
                 }
             }
 
             txtToLogin.setOnClickListener {
-                activity.navigateToLoginPage()
+                authenticationActivity.navigateToLoginPage()
             }
         }
 

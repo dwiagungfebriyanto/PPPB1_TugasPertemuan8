@@ -1,6 +1,5 @@
 package com.example.tugaspertemuan8
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,10 +12,9 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        title = "MyTabLayout"
+        // custom action bar
         supportActionBar?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
         supportActionBar?.setCustomView(R.layout.action_bar)
-        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.action_bar_background))
 
         setContentView(R.layout.activity_home)
     }
@@ -29,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_logout -> {
+                // logout
                 val intentToAuthenticationActivity = Intent(this@HomeActivity, AuthenticationActivity::class.java)
                 Toast.makeText(this@HomeActivity, "See you soon!", Toast.LENGTH_SHORT).show()
                 startActivity(intentToAuthenticationActivity)

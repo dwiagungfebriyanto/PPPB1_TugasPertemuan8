@@ -34,15 +34,22 @@
             android:hint="Username"
             app:layout_constraintTop_toBottomOf="@id/txt_title_login" />
 
-        <EditText
-            android:id="@+id/edit_text_password"
-            style="@style/EditText"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Password"
-            android:inputType="textPassword"
-            app:layout_constraintTop_toBottomOf="@id/edit_text_username" />
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_username">
+            <EditText
+                android:id="@+id/edit_text_password"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
             android:id="@+id/layout"
@@ -50,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/edit_text_password">
+            app:layout_constraintTop_toBottomOf="@id/text_input_layout_password">
             <CheckBox
                 android:id="@+id/checkbox_remember"
                 android:layout_width="wrap_content"
@@ -78,7 +85,7 @@
         style="@style/Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="254dp"
+        android:layout_marginTop="258dp"
         android:layout_marginBottom="24dp"
         android:text="Login"
         app:layout_constraintBottom_toTopOf="@id/to_register"

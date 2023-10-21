@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Tugas Pertemuan 8</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tc">By checking the box you agree to our <font color="#525BFF">Terms</font> and <font color="#525BFF">Conditions</font>.</string>
 </resources>
